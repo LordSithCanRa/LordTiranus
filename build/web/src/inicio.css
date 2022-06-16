@@ -1,0 +1,286 @@
+/* .header{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+   /*  border: 2px solid blue; */
+/* } */
+body{
+    background: url(img/fondoPageJuego.png) center center fixed no-repeat;
+    background-size: 100% 100%;  
+    cursor: url(../cursor/oth28.cur);
+}
+/* html{
+    cursor: url("../cursor/oth28.cur");
+} */
+.titulo{
+    margin: auto;
+    margin-left: 30px;
+    color: yellow;
+} 
+.usuario{
+    margin: auto;
+    color: white;
+    width:150px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+.imagenUsuario{
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+.movimiento{
+    height: 4vh;
+    min-height: 40px;
+    background-color: rgb(88, 88, 88);
+    text-align: center;
+    font-size: 29px;
+    font-weight: bolder;
+    
+}
+.movimiento>div>a{
+    color: yellow;
+    margin: 2px;
+}
+.movimiento>div>a:hover{
+    color: blue;
+}
+.juego{
+    
+    height: 76vh;
+    display: flex;
+    flex-direction: row;
+}
+.anuncios{
+    background-color: transparent; /* VISUALIZAMOS EL CONTENEDOR */
+    width: 23vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.anuncio{
+    background-color: brown;
+    color: white;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    margin: auto;
+}
+.anuncio>img{
+    width: 100%;
+    height: 100%;
+}
+.juego{
+    /* background-color: red; */
+    margin: auto;
+}
+#canvas1{
+    width: 50vw;
+    height: 60vh; 
+    border: 1px solid black;
+    background: #d79c50;
+    position: absolute;
+    top: 60%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.top10{
+    background-color: rgba(131, 125, 117, 0.7);
+    width: 20vw;
+}
+.top10Titulo{
+    margin-top: 20px;
+    text-align: center;
+    color: yellow;
+}
+.top10Tabla{
+    width: 50px;
+    color: black;
+    margin: auto;
+}
+#offcanvasExample{
+    width: 50%;
+}
+.panelInv{
+    background-color: rgba(128, 128, 128, 0.424);
+    margin: 50px;
+    
+}
+.inventario{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.invPersonajes{
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    background-color: yellow;
+    border: 1px solid black;
+}
+.invFondo{
+    margin: 10px;
+    width: 150px;
+    height: 50px;
+    background-color: brown;
+    border: 1px solid black;
+    /* margin: auto; */
+}
+#pills-tab{
+    justify-content: center;
+}
+.panelEditUsuario{
+    padding: 140px;
+    margin: 50px;
+}
+.list-group-item{
+    width: 250px;
+    text-align: center;
+}
+.panelComentarios{
+    padding: 45px;
+    margin: 50px;
+}
+.miComents{
+    padding: 10px;
+    min-width: 600px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+.comentario{
+    background-color: rgb(165, 164, 164);
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid black;
+    padding: 5px;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.eliminar{
+/*    position: relative;
+    top: 50%;
+    left:30%;*/
+    color: red;
+    cursor: pointer;
+    background-color: red;
+    height: 20px;
+    
+}
+.eliminarComentBttn{
+    background-color: red;
+}
+.eliminar>p>i{
+    font-size: 30px;
+}
+/* footer{
+    padding: 13px;
+    color: yellow;
+    background-color: black;
+    text-align: center;
+} */
+.botonesR{
+    display: none;
+}
+.botonJuego{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(53, 53, 53, 0.733);
+    font-size: 25px;
+}
+
+.accordion-body>form{
+    
+    margin: auto;
+}
+@media (max-width: 800px) {
+    footer{
+        display: none;
+    }
+    .top10{
+        display: none;
+    }
+    .movimiento{
+        height: 5vh;
+        min-height: 50px;
+    }
+    #canvas1{
+        width: 90vw;
+        height: 300px;
+        border: 1px solid black;
+        background: #d79c50;
+        position: absolute;
+        top: 40%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        
+        
+    }
+    .botonesR{
+        display: block;
+        background-color: rgba(128, 128, 128, 0.753);
+        position: relative;
+        height: 200px;
+        width: 200px;
+        margin-top: 30px;
+        border-radius: 100%;
+        top: 40vh;
+        right: 30vw;
+    }
+    .botonJuego{
+        position: absolute;
+    }
+    .up-arrow{
+        top: 20px;
+        left: 75px;
+    }
+    .right-arrow{
+        top: 75px;
+        right: 20px;
+    }
+    .left-arrow{
+        top: 75px;
+        left: 20px;
+    }
+    .down-arrow{
+        bottom: 20px;
+        left: 75px;
+    }
+    .anuncios{
+        display: none;
+    }
+    #monedas{
+        display: none;
+    }
+    #nombre{
+        margin-left: 25px;
+        margin-right: 10px;
+    }
+    footer{
+        position: fixed;
+    bottom: 0;
+    width: 100%;
+    }
+    #offcanvasExample{
+        width: 90%;
+    }
+    .miComents{
+        min-width: 200px;
+    }
+    .comentario{
+        width: 230px;
+    }
+    .panelComentarios{
+        padding: 20px;
+        margin: 10px;
+    }
+    .panelEditUsuario{
+        padding: 10px;
+        margin: 5px;
+    }
+}

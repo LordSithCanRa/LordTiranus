@@ -1,0 +1,112 @@
+@font-face {
+    font-family: starWars;
+    src: url(fonts/StarJedi-DGRW.woff);
+  }
+  @font-face {
+    font-family: starWars2;
+    src: url(fonts/StarJediHollow-A4lL.woff);
+  }
+body{
+    background: url(img/estrellaDeLaMuerte.jpg) center center fixed no-repeat;
+    background-size: 100% 100%;  
+    font-size: larger;
+    font-weight: bolder;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(10,10,10);
+}
+.titulo{
+    margin: auto;
+    margin-left: 30px;
+    color: yellow;
+    font-family: starWars;
+}
+.logIn{
+    margin-right: 30px;
+    font-size: 50px;
+    color: rgb(0, 102, 255);
+}
+.historia{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 30px;
+    background-color: rgb(87, 85, 85, 0.6);
+    text-align: center;
+    color: white;
+}
+.objetivos{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 30px;
+    background-color: rgb(48, 48, 48, 0.5);
+    /* background-color: rgb(211, 150, 81); */
+    color: white;
+    text-align: center;
+}
+.controles{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: rgb(87, 85, 85, 0.6);
+    padding: 30px;
+    color: white;
+    text-align: center;
+}
+.competicion{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 30px;
+    background-color: rgb(48, 48, 48, 0.2);
+    color: white;
+    text-align: center;
+}
+.normas{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: rgb(87, 85, 85, 0.6);
+    padding: 30px;
+    color: white;
+    text-align: center;
+}
+.acc{
+    width: 30vw;
+    color: black;
+    margin: auto;
+}
+footer{
+    padding: 10px;
+    color: yellow;
+    background-color: rgb(10,10,10);;
+    text-align: center;
+}
+.modalheader{
+    margin: auto;
+}
+@media (max-width: 500px) {
+    .historia{
+        width: 80%;
+    }
+    .objetivos{
+        width: 80%;
+    }
+    .controles{
+        width: 80%;
+    }
+    .competicion{
+        width: 80%;
+    }
+    .normas{
+        width: 80%;
+    }
+    .acc{
+        width: 40vw;
+        
+    }
+}

@@ -1,0 +1,133 @@
+body{
+    background: url(img/Jaawa.jpg) center center fixed no-repeat;
+    background-size: 100% 100%;  
+}
+/* .tienda{
+    min-height: 90vh;
+    
+} */
+#pills-tab{
+    justify-content: center;
+    margin-top: 20px;
+}
+/* SKINS */
+#pills-skins{
+    min-height: 80vh;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: calc(.5vw + .5vh);
+    width: 100%;
+    padding:0px calc(4vw + 4vh);
+    padding-bottom: 80px;
+    /* flex-wrap: wrap;
+    justify-content: space-between; */
+    
+}
+
+.buySkin{
+    height: 30vh;
+    background-color: rgba(210, 210, 210, 0.5);
+    /* height: 200px; */
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 25px;
+    text-align: center;
+    min-height: 20vh;
+    
+    
+}
+.imgSkin{
+    margin: auto;
+    margin-bottom: 10px;
+    width: 80px;
+    height: 80px;
+}
+.imgSkin>img{
+    width: 100%;
+    height: 100%;
+}
+/* APARTADO DEL FONDO */
+#pills-Fondos{
+    min-height: 80vh;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: calc(.5vw + .5vh);
+    width: 100%;
+    padding:0px calc(4vw + 4vh);
+    padding-bottom: 80px;
+}
+.buyBackground{
+    height: 30vh;
+    background-color: rgb(151, 148, 148, 0.5);
+    /* height: 200px; */
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 25px;
+    text-align: center;
+    
+}
+.imgBack{
+    margin: auto;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 70px;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+}
+.imgBack>img{
+    width: 100%;
+    height: 100%;
+}
+#pills-monedas{
+    min-height: 80vh;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(1, 300px);
+    gap: calc(.5vw + .5vh);
+    width: 100%;
+    padding:0px calc(4vw + 4vh);
+    padding-bottom: 80px;
+    justify-content: center;
+}
+.buyMonedas{
+    height: 25vh;
+    background-color: rgb(151, 148, 148, 0.5);
+    /* height: 200px; */
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 25px;
+    text-align: center;
+    
+}
+.imgMon{
+    margin: auto;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 70px;
+}
+.imgMon>img{
+    width: 100%;
+    height: 100%;
+} 
+@media (max-width: 500px) {
+    #pills-skins{
+        grid-template-columns: repeat(2, 1fr);
+        gap: calc(.5vw + .5vh);
+    }
+    .buySkin{
+        height: 280px;
+    }
+    .buyMonedas{
+       height: 250px;
+    }
+    #pills-Fondos{
+        grid-template-columns: repeat(1, 1fr);
+        gap: calc(.5vw + .5vh);
+    }
+}

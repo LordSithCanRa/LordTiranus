@@ -1,0 +1,145 @@
+.movimiento{
+    height: 4vh;
+    background-color: rgb(88, 88, 88);
+}
+.verUsuario{
+    min-height: 90vh;
+    background: url(img/fondoRegistro.jpg) center center fixed no-repeat;
+    background-size: 100% 100%;  
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.zonaUsuario{
+    min-height: 30vh;
+    width: 50vw;
+    margin: auto;
+    
+    background-color: rgba(0, 0, 0, 0.5);
+    /* z-index: -1; */
+    padding: 30px;
+    border: 2px solid white;
+    color: white;
+    
+}
+.imagenUsuarioP{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+}
+.imagenUsuarioP>img{
+    width: 100%;
+    height: 100%;
+}
+
+.nombreU{
+    text-align: center;
+}
+.stats{
+    display: flex;
+    
+}
+.max-points{
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+.plays{
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+.plays>p:nth-child(2){
+    background-color: grey;
+    color: black;
+    width: 50%;
+    margin: auto;
+}
+.max-points>p:nth-child(2){
+    background-color: grey;
+    color: black;
+    width: 50%;
+    margin: auto;
+}
+.cajaTrofeos{
+    width: 60%;
+    margin: auto;
+    background-color: grey;
+    padding: 30px;
+    border: 2px solid rgb(10, 10, 10);
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.trofTitl{
+    text-align: center;
+}
+
+.trofeo1{
+    width: 30px;
+    height: 70px;
+}
+
+.trofeo1>img{
+    width: 100%;
+    height: 100%;
+}
+.comentarios{
+    border: 2px solid yellow;
+    margin-top: 20px;
+    padding: 30px;
+}
+.comentar{
+    margin-bottom: 10px;
+}
+#liveToast{
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    
+}
+.formComentario{
+    width: 80%;
+    margin: auto;
+}
+.formComentario>*{
+    width: 100%;
+    margin: auto;
+}
+textArea{
+    resize: none;
+}
+.sectionComentar>*{
+    height: 200px;
+    width: 400px;
+}
+.imgComent{
+    width: 15px;
+    height: 15px;
+    background-color: red;
+}
+.espacioNombreHora{
+    padding: 5px;
+}
+@media (max-width: 500px) {
+    .zonaUsuario{
+        width: 90%;
+    }
+    #monedas{
+        display: none;
+    }
+    .stats{
+        
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    .stats>*{
+        margin: auto;
+    }
+    .cajaTrofeos{
+        flex-direction: column;
+        
+    }
+    .trofeo1{
+        margin: auto;
+    }
+}
