@@ -43,8 +43,11 @@ public class ObtenerInicio extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sesion = request.getSession();
         Usuario u = (Usuario) sesion.getAttribute("usuario");
+        //Mensajes enviados al inicio
         String error = request.getParameter("error");
         String confirm = request.getParameter("confirm");
+        String pro = request.getParameter("pro");
+        
         //Obtenemos el top 10
         List<Clasificacion> clasif = null;
         try{
@@ -70,6 +73,9 @@ public class ObtenerInicio extends HttpServlet {
         }
         if(error!=null){
             request.setAttribute("error", error);
+        }
+        if(pro!=null){
+            request.setAttribute("pro", pro);
         }
         request.getRequestDispatcher("inicio.jsp").forward(request, response);
         

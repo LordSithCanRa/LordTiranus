@@ -47,9 +47,11 @@ public class ObtenerTienda extends HttpServlet {
         }catch (SQLException e){
             System.err.println(e.getMessage());
         }
-
+        //Guardamos las listas de productos
         request.setAttribute("fondos", fondos);
         request.setAttribute("skins", skins);
+        
+        //ERRORES/CONFIRMACIONES DE COMPRA
         if(mensajeError!=null){
             request.setAttribute("error", mensajeError);
         }

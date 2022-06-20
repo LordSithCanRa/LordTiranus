@@ -36,6 +36,7 @@ public class ObtenerUsuarios extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //LISTADO DE USUARIOS PARA EL APARTADO DE ADMIN
         List<Usuario> usuarios = null;
         try{
             usuarios = daoSistema.obtenerTodosUsuarios();

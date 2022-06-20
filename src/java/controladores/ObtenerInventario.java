@@ -49,6 +49,7 @@ public class ObtenerInventario extends HttpServlet {
         }catch(SQLException e){
             System.err.println(e.getMessage());
         }
+        //Pasamos la lista de inventarios por request
         request.setAttribute("fondos", invfondos);
         request.setAttribute("skins", invSkins);
         request.getRequestDispatcher("inventario.jsp").forward(request, response);

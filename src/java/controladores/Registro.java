@@ -44,6 +44,7 @@ public class Registro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //VARIABLES DEL FORMULARIO 
         String usuario = null;
         BufferedReader bfru = new BufferedReader(new InputStreamReader(request.getPart("usuario").getInputStream()));
         usuario = bfru.readLine();
@@ -57,48 +58,7 @@ public class Registro extends HttpServlet {
         BufferedReader bfre = new BufferedReader(new InputStreamReader(request.getPart("email").getInputStream()));
         email = bfre.readLine();
         String error = null;
-        /*
-         * Subimos el fichero
-        */
-        try {
-
-            String nombre = usuario;
-            String extension = "";
-            Part datosSubidos = request.getPart("imgUsuario");
-            if (datosSubidos == null) { // No se ha subido el fichero
-            error = "No se ha recibido la imagen";
-            }else{
-                if (datosSubidos.getSize() > 1000*1024) { // Fichero demasiado grande
-                    error = "No se permiten ficheros superiores a 1000Kb";
-                }else{
-                    if (datosSubidos.getContentType().indexOf("imgUsuario")==1) { // El fichero no es una imagen
-                        error = "El fichero recibido no es una imagen válida";
-                    }else {
-                        String tipoContenido =
-                        datosSubidos.getContentType();
-                        int posicion = tipoContenido.indexOf("/");
-                        extension = tipoContenido.substring(posicion + 1);
-                    }
-                }
-            }
-            if(error == null){
-                nombre = nombre+"."+"PNG";
-                String path = request.getServletContext().getRealPath("/imgUsuarios");
-                String contexto = path + "/" + nombre;
-                InputStream contenido = datosSubidos.getInputStream();
-                FileOutputStream fichero = new FileOutputStream(contexto);
-                byte[] bytes = new byte[12048];
-                    while (contenido.available()>0) {
-                        int longitud = contenido.read(bytes);
-                        fichero.write(bytes, 0, longitud);
-                    }
-
-
-                fichero.close();
-            }  
-        }catch (Exception e) {
-            error = e.getMessage();
-        }
+        
          /*
          * Validación de los campos
          */
@@ -106,8 +66,8 @@ public class Registro extends HttpServlet {
         Skin skinInicial = null;
         Fondos fondoInicial = null;
         if(!usuario.isEmpty() || usuario != null){
-            if(usuario.length() > 10){
-                error = "El usuario no puede superar las 10 letras";
+            if(usuario.length() > 15){
+                error = "El usuario no puede superar las 15 letras";
             }else{
                 //Comprobacion contraseñas
                 if(!passwordr.isEmpty() || passwordr != null || !password.isEmpty() || password != null){
@@ -147,15 +107,56 @@ public class Registro extends HttpServlet {
         
         
         if (error == null) {//Si no hay error
+       /*
+        * Subimos el fichero
+        */
+            try {
+
+                String nombre = usuario;
+                String extension = "";
+                Part datosSubidos = request.getPart("imgUsuario");
+                if (datosSubidos == null) { // No se ha subido el fichero
+                error = "No se ha recibido la imagen";
+                }else{
+                    if (datosSubidos.getSize() > 1000*1024) { // Fichero demasiado grande
+                        error = "No se permiten ficheros superiores a 1000Kb";
+                    }else{
+                        if (datosSubidos.getContentType().indexOf("imgUsuario")==1) { // El fichero no es una imagen
+                            error = "El fichero recibido no es una imagen válida";
+                        }else {
+                            String tipoContenido =
+                            datosSubidos.getContentType();
+                            int posicion = tipoContenido.indexOf("/");
+                            extension = tipoContenido.substring(posicion + 1);
+                        }
+                    }
+                }
+                if(error == null){
+                    nombre = nombre+"."+"PNG";
+                    String path = request.getServletContext().getRealPath("/imgUsuarios");
+                    String contexto = path + "/" + nombre;
+                    InputStream contenido = datosSubidos.getInputStream();
+                    FileOutputStream fichero = new FileOutputStream(contexto);
+                    byte[] bytes = new byte[12048];
+                        while (contenido.available()>0) {
+                            int longitud = contenido.read(bytes);
+                            fichero.write(bytes, 0, longitud);
+                        }
+
+
+                    fichero.close();
+                }  
+            }catch (Exception e) {
+                error = e.getMessage();
+            }
+        } 
+        
+        if(error == null){
             HttpSession sesion = request.getSession();
             sesion.setAttribute("usuario", u);//Guardamos el usuario en la sesion
             //Guardamos en la sesion la skin y el fondo que usaremos inicialmente al jugar
             sesion.setAttribute("skinInicial", skinInicial);
             sesion.setAttribute("fondoInicial", fondoInicial);
-            
-        } 
-        
-        if(error == null){
             String mensaje = URLEncoder.encode("Bienvenido nuevo padawan, "+usuario, "latin1");
             
             response.sendRedirect(response.encodeRedirectURL("ObtenerInicio?info="

@@ -531,10 +531,6 @@ public class daoSistema {
         consulta.setString(3, u.getUsuario());
         consulta.execute();
     desconectarBD(con);
-//    int proxNiv = u.getNivel()+2;
-//    Nivel nivelSiguiente = obtenerNivel(proxNiv);
-//    if()
-//    comprobarSubidaNivel(u, exp);
     }
     
     
@@ -581,5 +577,16 @@ public class daoSistema {
         }  
         mensaje = "Has subido "+exp+" de experiencia!";//Mensaje que mandamos para confirmación
         return mensaje;
+    }
+    
+    //Ponemos la experiencia del usuario a 0
+    public static void experienciaFinal(Usuario u)throws SQLException{
+        Connection con = conectarBD();
+        PreparedStatement consulta = con.prepareStatement(
+                "update usuarios set experienciaAct=? where usuario=?");
+        consulta.setInt(1, 0);
+        consulta.setString(2, u.getUsuario());
+        consulta.execute();
+        desconectarBD(con);
     }
 }

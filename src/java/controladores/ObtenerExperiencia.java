@@ -47,9 +47,15 @@ public class ObtenerExperiencia extends HttpServlet {
             Usuario u = daoSistema.obtenerUsuario(usuarioExp);
             if(u.getNivel() >= (daoSistema.obtenerUltimoNivel()-1)){//Menos uno porque el método obtiene el último nivel para agregar
                 pro = "Has llegado al maximo de nivel";
+                daoSistema.experienciaFinal(u);
             }else{
                 confirm = daoSistema.comprobarSubidaNivel(u, exp);
                 u = daoSistema.obtenerUsuario(usuarioExp);//Actualizamos los datos del cusuario
+                if(u.getNivel() >= (daoSistema.obtenerUltimoNivel()-1)){
+                    pro = "Has llegado al maximo de nivel";
+                    daoSistema.experienciaFinal(u);
+                }
+                u = daoSistema.obtenerUsuario(usuarioExp);//Actualizamos de nuevo
                 ReinicioSesion.reiniciarUsuario(u, request);//Reiniciamos la sesion para que se muestren los datos
             }
         }catch(SQLException e){
@@ -57,6 +63,7 @@ public class ObtenerExperiencia extends HttpServlet {
         }
         
         
+        //MENSAJES DE CONFIRMACION DE EXPERIENCIA
         if(error != null){
             String mensaje = URLEncoder.encode(error, "latin1");
             response.sendRedirect(response.encodeRedirectURL("ObtenerInicio?error="
@@ -66,6 +73,7 @@ public class ObtenerExperiencia extends HttpServlet {
             response.sendRedirect(response.encodeRedirectURL("ObtenerInicio?pro="
                     + mensaje));
         }else{
+            
             String mensaje = URLEncoder.encode(confirm, "latin1");
             response.sendRedirect(response.encodeRedirectURL("ObtenerInicio?confirm="
                     + mensaje));

@@ -55,7 +55,7 @@
         <script>
         Swal.fire(
         'Eres un PRO',
-        '${param.info}',
+        '${param.pro}',
         'info'
         )
     </script>

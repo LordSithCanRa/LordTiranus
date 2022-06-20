@@ -42,6 +42,8 @@ public class InsertarComentario extends HttpServlet {
         String usuarioRemitente = request.getParameter("usuarioRemitente");
         if(comentario == null || comentario.length()==0 || comentario.trim().equals("")){
             error = "Debes escribir un comentario para poder insertarlo.";
+        }else if(comentario.length()>200){
+            error = "Comentario demasiado largo";
         }
         
         if(error == null){

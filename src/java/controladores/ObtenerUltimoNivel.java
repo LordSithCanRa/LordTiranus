@@ -33,6 +33,7 @@ public class ObtenerUltimoNivel extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Obtenemos el último nivel que se puede agregar a la base de datos
         int ultimoNivel = 0;
         try{
             ultimoNivel = daoSistema.obtenerUltimoNivel();
